@@ -1,0 +1,5 @@
+#process_type (OVERFEAT+SVM,KMeans+SVM,KMeans+OPF,OPF+OPF,OPF+SVM) k (kmeans or opf kmax), n_sample_img, n_sample_descriptors, image_size, feature, descriptor
+#
+OVERFEAT+SVM,100,100,5000,256,OVERFEAT,OVERFEAT,
+OVERFEAT+OPF,100,100,5000,256,OVERFEAT,OVERFEAT,
+#

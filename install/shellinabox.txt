@@ -1,0 +1,61 @@
+# Instalando Shellinabox no Ubuntu 12.04
+
+Download
+
+32-bit
+wget http://archive.ubuntu.com/ubuntu/pool/universe/s/shellinabox/shellinabox_2.14-1_i386.deb
+
+64-bit
+wget http://archive.ubuntu.com/ubuntu/pool/universe/s/shellinabox/shellinabox_2.14-1_amd64.deb
+
+Install
+
+32-bit
+sudo dpkg -i shellinabox_2.14-1_i386.deb
+
+64-bit
+sudo dpkg -i shellinabox_2.14-1_amd64.deb
+
+# Gerenciando o serviço
+
+Para iniciar, parar e reiniciar o serviço utilize os comandos abaixo:
+
+sudo service shellinabox start
+sudo service shellinabox stop
+sudo service shellinabox reload
+
+Adicionando no bash
+
+alias shellstart='sudo service shellinabox start'
+alias shellstop='sudo service shellinabox stop'
+alias shellreload='sudo service shellinabox reload'
+
+# Configurando o shellinabox
+
+sudo vi /etc/default/shellinabox
+
+'''
+# TCP port that shellinboxd's webserver listens on
+SHELLINABOX_PORT=4200
+
+# enable shellinabox in the local machine
+SHELLINABOX_ARGS="--o-beep"
+
+# specify the IP address of a remote destination SSH server (Ex:)
+SHELLINABOX_ARGS="--o-beep -s /:SSH:192.168.1.2"
+
+# if you want to restrict access to shellinaboxd from localhost only
+SHELLINABOX_ARGS="--o-beep -s /:SSH:192.168.1.2 --localhost-only
+'''
+
+# 2 - Instalando localtunnel
+
+O localtunnel é um serviço que vai redirecionar os comandos através de http para o servidor sem a necessidade de configurar um roteador, NAT, etc.
+
+sudo apt-get update
+sudo apt-get install nodejs
+sudo npm install -g localtunnel
+
+Para iniciar  o serviço:
+lt --port 4200 &
+

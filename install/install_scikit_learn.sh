@@ -1,0 +1,1 @@
+sudo apt-get -y install build-essential python-dev python-numpy python-setuptools python-scipy libatlas-dev libatlas3-base python-matplotlib
